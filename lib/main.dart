@@ -22,7 +22,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     Widget image_carousel = new Container(
-      height: 180.0,
+      height: 160.0,
       child: new Carousel(
         boxFit: BoxFit.cover,
         images: [
@@ -42,7 +42,7 @@ class _MyAppState extends State<MyApp> {
 
     return Scaffold(
         appBar: new AppBar(
-          elevation: 0.0,
+          elevation: 0.1,
           backgroundColor: Colors.red,
           title: Text('My Shopper'),
           actions: <Widget>[
@@ -149,7 +149,7 @@ class _MyAppState extends State<MyApp> {
 
             //gridview
             Container(
-              height: 280.0,
+              height: 240.0,
               child: Products(),
             )
           ],
