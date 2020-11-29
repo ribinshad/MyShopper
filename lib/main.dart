@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_pro/carousel_pro.dart';
+
+//componets
+import 'package:testapp/componets/horizontal_listview.dart';
 void main() {
   runApp(
     MaterialApp(
@@ -25,7 +28,7 @@ class _MyAppState extends State<MyApp> {
         AssetImage('assets/images/m1.jpeg'),
         AssetImage('assets/images/w1.jpeg'),
         AssetImage('assets/images/w3.jpeg'),
-        AssetImage('assets/images/w4.jpeg')
+        AssetImage('assets/images/w4.jpeg'),
       ],
       autoplay:true,
       animationCurve: Curves.fastOutSlowIn,
@@ -120,7 +123,23 @@ class _MyAppState extends State<MyApp> {
       ),
       body: new ListView(
         children:<Widget>[
-          image_carousel
+          image_carousel,
+
+          new Padding(padding: const EdgeInsets.all(8.0),
+          child: new Text('Categories'),),
+          
+          //horizontal list
+          HorizontalList(),
+
+           new Padding(padding: const EdgeInsets.all(8.0),
+          child: new Text('Recent products'),),
+          
+        //gridview
+        Container(
+          height: 320.0,
+          child:Products(),
+        )
+
         ],
       )
     );
