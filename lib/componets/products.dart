@@ -21,7 +21,7 @@ class _ProductsState extends State<Products> {
       "price": 700,
     },
     {
-      "name": "Womens Blazer",
+      "name": "Blazer",
       "picture": "assets/images/products/blazer2.jpeg",
       "old_price": 1000,
       "price": 600,
@@ -120,24 +120,23 @@ class Single_prod extends StatelessWidget {
                       ))),
               child: GridTile(
                 footer: Container(
-                  color: Colors.white70,
-                  child: ListTile(
-                    leading: Text(prod_name,
-                        style: TextStyle(fontWeight: FontWeight.bold)),
-                    title: Text(
-                      "\$$prod_price",
-                      style: TextStyle(
-                          color: Colors.red, fontWeight: FontWeight.w800),
-                    ),
-                    subtitle: Text(
-                      "\$$prod_old_price",
-                      style: TextStyle(
-                          color: Colors.black54,
-                          fontWeight: FontWeight.w800,
-                          decoration: TextDecoration.lineThrough),
-                    ),
-                  ),
-                ),
+                    color: Colors.white,
+                    child: new Row(
+                      children: <Widget>[
+                        Expanded(
+                          child: Text(
+                            prod_name,
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 16.0),
+                          ),
+                        ),
+                        new Text(
+                          "\$${prod_price}",
+                          style: TextStyle(
+                              color: Colors.red, fontWeight: FontWeight.bold),
+                        )
+                      ],
+                    )),
                 child: Image.asset(
                   prod_picture,
                   fit: BoxFit.cover,

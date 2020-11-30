@@ -4,7 +4,7 @@ import 'package:carousel_pro/carousel_pro.dart';
 //pages by me
 import 'package:testapp/componets/horizontal_listview.dart';
 import 'package:testapp/componets/products.dart';
-
+import 'package:testapp/pages/cart.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -36,6 +36,7 @@ class _MyAppState extends State<MyApp> {
         animationCurve: Curves.fastOutSlowIn,
         animationDuration: Duration(milliseconds: 1000),
         dotSize: 4.0,
+        dotBgColor: Colors.transparent,
         indicatorBgPadding: 2.0,
       ),
     );
@@ -57,7 +58,10 @@ class _MyAppState extends State<MyApp> {
                   Icons.shopping_cart,
                   color: Colors.white,
                 ),
-                onPressed: () {})
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => new Cart()));
+                })
           ],
         ),
         drawer: new Drawer(
@@ -99,10 +103,13 @@ class _MyAppState extends State<MyApp> {
                 ),
               ),
               InkWell(
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => new Cart()));
+                },
                 child: ListTile(
-                  title: Text('Categoris'),
-                  leading: Icon(Icons.dashboard, color: Colors.pink),
+                  title: Text('Shopping Cart'),
+                  leading: Icon(Icons.shopping_cart, color: Colors.pink),
                 ),
               ),
               InkWell(
@@ -130,7 +137,7 @@ class _MyAppState extends State<MyApp> {
             ],
           ),
         ),
-        body: new ListView(
+        body: new Column(
           children: <Widget>[
             image_carousel,
 
@@ -148,10 +155,8 @@ class _MyAppState extends State<MyApp> {
             ),
 
             //gridview
-            Container(
-              height: 240.0,
-              child: Products(),
-            )
+             Flexible(child: Products()),
+            
           ],
         ));
   }
